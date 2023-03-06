@@ -1,3 +1,5 @@
+import os
+
 print(""""
 
 ##### ##### ##### ##### ##### ##### #####
@@ -8,4 +10,7 @@ print(""""
 """
 )
 
-
+def menu():
+    os.system("cls")
+    print("-----SELECT OPTION----- \n")
+    print("")
