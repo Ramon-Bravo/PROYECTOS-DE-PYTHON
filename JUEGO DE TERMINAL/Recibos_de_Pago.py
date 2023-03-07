@@ -1,5 +1,3 @@
-import signal
-
 print(""""
 
 ##### ##### ##### ##### ##### ##### #####
@@ -11,38 +9,40 @@ _______________________________________________
 """
 )
 
-def menu():
-    correcto = False
-    num = 0
-    while (not correcto):
-        try:
-            num = int(input("\n -----SELECT OPTION----- \n"))
-            correcto = True
-        except ValueError:
-            print("Error, introduzca un numero. ")
-        return num
-salir = False
-opcion = 0
+def mostrar_menu(opciones):
+    print("Seleccione una opcion: ")
+    for clave in sorted(opciones):
+        print(f' {clave}) {opciones[clave][0]}')
 
-while not salir:
-    print("\n 1. Capturar nuevo recibo de pago. \n")
-    print("\n 2. Salir. \n")
+def leer_opcion(opciones):
+    while(a := input('Opcion: ')) not in opciones:
+        print("Opcion incorrecta")
+    return a
 
-    opcion = menu
-        
-    if opcion == 1:
-        print("Quieres hacer un nuevo registro?")
-        input("Haz pulsado la opcion 1...")
-    elif opcion == 2:
-        salir = True
-    else:
-        print("Introduzca un numero.")
+def ejecutar_opcion(opcion, opciones):
+    opciones[opcion][1]()
 
-input('Press <ENTER> to continue')
+def generar_menu(opciones, opcion_salida):
+    opcion = None
+    while opcion != opcion_salida:
+        mostrar_menu(opciones)
+        opcion = leer_opcion(opciones)
+        ejecutar_opcion(opcion, opciones)
+        print()
 
-def signal_handler(signal_number, frame):
-    print ("Proceed ...")
+def menu_principal():
+    opciones = {
+        "1": ("Opcion 1", accion1),
+        "2": ("Salir", Salir)
+    }
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.pause()
+    generar_menu(opciones, "2")
 
+def accion1():
+    print("Ha elegido la opcion 1")
+
+def Salir():
+    print("Saliendo")
+
+if __name__ == '__main__':
+    menu_principal()
