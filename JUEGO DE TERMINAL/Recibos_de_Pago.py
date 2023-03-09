@@ -33,8 +33,9 @@ def generar_menu(opciones, opcion_salida):
 
 def menu_principal():
     opciones = {
-        "1": ("Opcion 1", accion1),
-        "2": ("Salir", Salir)
+        "1": ("Registrar recibo. ", accion1),
+        "2": ("Registrar nombre. ", accion2),
+        "3": ("Salir", Salir)
     }
 
     generar_menu(opciones, "2")
@@ -61,6 +62,8 @@ def accion1():
 
     print(recibo_1)
 
+def accion2():
+    print("Selecciono opcion 2")
 
 def Salir():
     print("Saliendo")
