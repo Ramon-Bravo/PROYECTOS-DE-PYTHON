@@ -63,7 +63,15 @@ def accion1():
     print(recibo_1)
 
 def accion2():
-    print("Selecciono opcion 2")
+    depto = int(input("ESCRIBA EL NO, DE DEPARTAMENTO: "))
+    nombre = input("ESCRIBA UN NOMBRE: ")
+    
+    with open("nombres.csv", "w") as csvfile:
+        fieldnames = ["Departamento", "Nombre"]
+        writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
+        writer.writeheader()
+    with open("nombres.csv", "a") as csvfile:
+        writer.writerow({"Departamento": depto, "Nombre": nombre})
 
 def Salir():
     print("Saliendo")
