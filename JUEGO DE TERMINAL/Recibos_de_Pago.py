@@ -8,6 +8,7 @@ print(""""
 _______________________________________________
 """
 )
+import csv
 
 def mostrar_menu(opciones):
     print("Seleccione una opcion: ")
@@ -39,7 +40,27 @@ def menu_principal():
     generar_menu(opciones, "2")
 
 def accion1():
-    print("Ha elegido la opcion 1")
+    recibos_pago = int(input("INGRESE EL NUMERO DE RECIBO:  "))
+    nombre = input("INGRESE EL NOMBRE DE QUIEN PAGA: ")
+    depto = int(input("INGRESE EL NO. DE DEPARTAMENTO. "))
+    concepto = input("INGRESE EL CONCEPTO DEL PAGO: ")
+    cantidad = int(input("INGRESE LA CANTIDAD DEL PAGO: "))
+    
+    recibo = """
+    
+    ########################################
+    #    NUMERO DE RECIBO: {recibos_pago}
+    #    NOMBRE: {nombre}
+    #    CONCEPTO: {concepto}
+    #    DEPARTAMENTO: {depto}
+    #    CANTIDAD: {cantidad}
+    ########################################
+    
+    """
+    recibo_1 = recibo.format(recibos_pago=recibos_pago, nombre=nombre, depto=depto, concepto=concepto, cantidad=cantidad)
+
+    print(recibo_1)
+
 
 def Salir():
     print("Saliendo")
