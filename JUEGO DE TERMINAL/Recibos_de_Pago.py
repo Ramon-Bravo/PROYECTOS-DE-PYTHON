@@ -9,6 +9,7 @@ _______________________________________________
 """
 )
 import csv
+import xlsxwriter
 
 def mostrar_menu(opciones):
     print("Seleccione una opcion: ")
@@ -70,7 +71,7 @@ def accion2():
         fieldnames = ["Departamento", "Nombre"]
         writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
         writer.writeheader()
-    with open("nombres.csv", "a") as csvfile:
+    #with open("nombres.csv", "a") as csvfile:
         writer.writerow({"Departamento": depto, "Nombre": nombre})
 
 def Salir():
